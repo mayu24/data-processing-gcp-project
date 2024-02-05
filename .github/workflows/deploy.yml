@@ -34,8 +34,6 @@ jobs:
       - name: 'Use gcloud CLI'
         run: 'gcloud info'
             
-      - name: Update gcloud components
-        run: gcloud auth application-default login
           
 
       - name: Terraform Init
