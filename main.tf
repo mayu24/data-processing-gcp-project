@@ -4,8 +4,8 @@ provider "google" {
   region  = "us-central1"
 }
 
-resource "google_dataproc_cluster" "my_dataproc_cluster" {
-  name           = "my_dataproc_cluster"
+resource "google_dataproc_cluster" "my-dataproc-cluster" {
+  name           = "my-dataproc-cluster"
   project        = "root-rock-413418"
   region         = "us-central1"
   cluster_config {
