@@ -23,7 +23,7 @@ resource "google_dataproc_cluster" "my-dataproc-cluster" {
       disk_config {
         boot_disk_size_gb = 50
       }
-
     }
   }
-}
+
+
