@@ -22,8 +22,6 @@ jobs:
         run: |
           pip install -r requirements.txt
     
-      - name: Update gcloud components
-        run: gcloud components update
       - name: Install Google Cloud SDK
         run: |
             curl https://sdk.cloud.google.com | bash
