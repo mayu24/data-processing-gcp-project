@@ -4,7 +4,7 @@ provider "google" {
   region  = "us-central1"
 }
 
-  resource "google-dataproc-cluster" "my-dataproc-cluster" {
+  resource "google_dataproc_cluster" "my-dataproc-cluster" {
   name             = "my-dataproc-cluster"
   region           = "us-central1"
   project_id       = "root-rock-41341"
