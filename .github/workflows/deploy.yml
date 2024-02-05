@@ -23,8 +23,7 @@ jobs:
           pip install -r requirements.txt
     
       - name: Update gcloud components
-         run:|
-           gcloud components update
+        run: gcloud components update
 
       - name: Configure Google Cloud SDK
         uses: google-github-actions/setup-gcloud@v0
