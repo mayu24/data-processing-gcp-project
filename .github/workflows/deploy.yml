@@ -24,7 +24,7 @@ jobs:
     
       - name: Update gcloud components
          run:|
-         gcloud components update
+           gcloud components update
 
       - name: Configure Google Cloud SDK
         uses: google-github-actions/setup-gcloud@v0
