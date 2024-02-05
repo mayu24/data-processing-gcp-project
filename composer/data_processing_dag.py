@@ -34,7 +34,7 @@ submit_dataproc_job_task = DataprocSubmitJobOperator(
     gcp_conn_id='google_cloud_default',
     project_id='root-rock-413418',
     cluster_name='my_dataproc_cluster',
-    region='us-west1',
+    region='us-central1',
     job={
         'reference': {'projectId': 'root-rock-413418'},
         'placement': {'clusterName': 'my_dataproc_cluster'},
