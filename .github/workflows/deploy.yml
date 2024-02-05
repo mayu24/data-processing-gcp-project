@@ -26,7 +26,10 @@ jobs:
         uses: 'google-github-actions/setup-gcloud@v2'
         with:
          version: '>= 363.0.0'
+         service_account_email: ${{ secrets.GCP_SERVICE_ACCOUNT_EMAIL }}
          service_account_key: ${{ secrets.GCP_SA_KEY }}
+         export_default_credentials: true  # Export credentials as default
+
 
       - name: 'Use gcloud CLI'
         run: 'gcloud info'
