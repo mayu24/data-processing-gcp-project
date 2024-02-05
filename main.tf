@@ -11,11 +11,11 @@ resource "google_dataproc_cluster" "my-dataproc-cluster" {
   cluster_config {
     master_config {
       num_instances = 1
-      machine_type  = "n1-standard-4"
+      machine_type  = "e2-micro"
     }
     worker_config {
-      num_instances = 2
-      machine_type  = "n1-standard-4"
+      num_instances = 1
+      machine_type  = "e2-micro "
     }
   }
 }
