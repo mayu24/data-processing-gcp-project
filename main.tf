@@ -7,7 +7,6 @@ provider "google" {
   resource "google_dataproc_cluster" "my-dataproc-cluster" {
   name             = "my-dataproc-cluster"
   region           = "us-central1"
-  project_id       = "root-rock-41341"
   cluster_config {
     master_config {
       machine_type = "n1-standard-4" // Specify a machine type that meets the minimum requirements
