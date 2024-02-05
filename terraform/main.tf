@@ -19,4 +19,3 @@ resource "google_dataproc_cluster" "example_cluster" {
     }
   }
 }
-
