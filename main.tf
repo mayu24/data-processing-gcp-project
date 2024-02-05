@@ -11,11 +11,19 @@ resource "google_dataproc_cluster" "my-dataproc-cluster" {
   cluster_config {
     master_config {
       num_instances = 1
-      machine_type  = "e2-micro"
+      machine_type  = "n1-standard-4"
+      disk_config {
+        boot_disk_size_gb = 50 
+      }
+    }
     }
     worker_config {
       num_instances = 2
-      machine_type  = "e2-micro"
+      machine_type  = "n1-standard-4"
+      disk_config {
+        boot_disk_size_gb = 50
+      }
+
     }
   }
 }
