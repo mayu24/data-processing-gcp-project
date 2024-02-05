@@ -1,12 +1,12 @@
 # File: terraform/main.tf
 provider "google" {
-  project = "your-project-id"
+  project = "root-rock-41341"
   region  = "us-central1"
 }
 
-resource "google_dataproc_cluster" "example_cluster" {
-  name           = "example-cluster"
-  project        = "your-project-id"
+resource "google_dataproc_cluster" "my_dataproc_cluster" {
+  name           = "my_dataproc_cluster"
+  project        = "root-rock-413418"
   region         = "us-central1"
   cluster_config {
     master_config {
