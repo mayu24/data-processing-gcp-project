@@ -1,6 +1,6 @@
 # File: terraform/main.tf
 provider "google" {
-  project = "root-rock-41341"
+  project = "root-rock-413418"
   region  = "us-central1"
 }
 
