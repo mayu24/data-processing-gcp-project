@@ -14,17 +14,16 @@ default_args = {
 }
 
 dag = DAG(
-    'my_data_processing_workflow',
+    'data_processing_workflow',
     default_args=default_args,
-    description='A simple data processing workflow',
+    description='A data processing workflow',
     schedule_interval=timedelta(days=1),
 )
 
 task_process_data = BashOperator(
     task_id='process_data',
-    bash_command='python /path/to/your_script.py',
+    bash_command='python /path/to/dataproc/main.py',
     dag=dag,
 )
 
 task_process_data
-
