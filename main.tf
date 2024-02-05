@@ -15,7 +15,7 @@ resource "google_dataproc_cluster" "my-dataproc-cluster" {
     }
     worker_config {
       num_instances = 2
-      machine_type  = "e2-micro "
+      machine_type  = "e2-micro"
     }
   }
 }
