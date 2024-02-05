@@ -1,20 +1,27 @@
-# File: .github/workflows/ci.yml
-name: CI
+name: Test
 
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
-  lint:
+  test:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Lint Python files
-        run: |
-          pip install pylint
-          pylint ./**/*.py
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
 
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run tests
+        run: |
+          pytest tests/
