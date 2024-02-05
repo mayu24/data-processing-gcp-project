@@ -1,6 +1,6 @@
 from airflow import DAG
-from airflow.contrib.operators.dataproc_operator import DataprocSubmitJobOperator
-from airflow.contrib.operators.bigquery_operator import BigQueryOperator
+from airflow.providers.google.cloud.operators.dataproc import DataprocSubmitJobOperator
+from airflow.providers.google.cloud.operators.bigquery import BigQueryCreateEmptyTableOperator
 from datetime import datetime, timedelta
 
 default_args = {
@@ -20,15 +20,21 @@ dag = DAG(
     schedule_interval='@daily',
 )
 
-create_table_task = BigQueryOperator(
+create_table_task = BigQueryCreateEmptyTableOperator(
     task_id='create_table',
-    sql='CREATE TABLE IF NOT EXISTS your_dataset.processed_data (...)',
-    use_legacy_sql=False,
+    dataset_id='your_dataset',
+    table_id='processed_data',
+    gcp_conn_id='google_cloud_default',
     dag=dag
 )
 
 submit_dataproc_job_task = DataprocSubmitJobOperator(
     task_id='submit_dataproc_job',
+    job_name='dataproc_job',
+    gcp_conn_id='google_cloud_default',
+    project_id='your_project_id',
+    cluster_name='your_dataproc_cluster',
+    region='your_region',
     job={
         'reference': {'projectId': 'your_project_id'},
         'placement': {'clusterName': 'your_dataproc_cluster'},
@@ -36,9 +42,6 @@ submit_dataproc_job_task = DataprocSubmitJobOperator(
             'mainPythonFileUri': 'gs://your_bucket/your_script.py',
         },
     },
-    project_id='your_project_id',
-    region='your_region',
-    cluster_name='your_dataproc_cluster',
     dag=dag
 )
 
