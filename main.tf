@@ -9,13 +9,13 @@ provider "google" {
   region           = "us-central1"
   cluster_config {
     master_config {
-      machine_type = "n1-standard-4" // Specify a machine type that meets the minimum requirements
+      machine_type = "e2-medium" // Specify a machine type that meets the minimum requirements
       disk_config {
         boot_disk_size_gb = 50// Specify the boot disk size in GB
       }
     }
     worker_config {
-      machine_type = "n1-standard-4" // Specify a machine type that meets the minimum requirements
+      machine_type = "e2-medium" // Specify a machine type that meets the minimum requirements
       disk_config {
         boot_disk_size_gb = 50 // Specify the boot disk size in GB
       }
