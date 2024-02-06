@@ -33,11 +33,11 @@ submit_dataproc_job_task = DataprocSubmitJobOperator(
     job_name='dataproc_job',
     gcp_conn_id='google_cloud_default',
     project_id='root-rock-413418',
-    cluster_name='my_dataproc_cluster',
+    cluster_name='my-dataproc-cluster',
     region='us-central1',
     job={
         'reference': {'projectId': 'root-rock-413418'},
-        'placement': {'clusterName': 'my_dataproc_cluster'},
+        'placement': {'clusterName': 'my-dataproc-cluster'},
         'pysparkJob': {
             'mainPythonFileUri': 'gs://my_bucket_dataproc/my_script.py',
         },
