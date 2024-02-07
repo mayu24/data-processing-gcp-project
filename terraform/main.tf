@@ -1,21 +1,25 @@
 # File: terraform/main.tf
 provider "google" {
-  project = "root-rock-41341"
+  project = "root-rock-413418"
   region  = "us-central1"
 }
 
-resource "google_dataproc_cluster" "my_dataproc_cluster" {
-  name           = "my_dataproc_cluster"
-  project        = "root-rock-41341"
-  region         = "us-central1"
+  resource "google_dataproc_cluster" "my-dataproc-cluster" {
+  name             = "my-dataproc-cluster"
+  region           = "us-central1"
   cluster_config {
     master_config {
-      num_instances = 1
-      machine_type  = "e2-micro"
+      machine_type = "e2-medium" // Specify a machine type that meets the minimum requirements
+      disk_config {
+        boot_disk_size_gb = 50// Specify the boot disk size in GB
+      }
     }
     worker_config {
-      num_instances = 2
-      machine_type  = "e2-micro"
+      machine_type = "e2-medium" // Specify a machine type that meets the minimum requirements
+      disk_config {
+        boot_disk_size_gb = 50 // Specify the boot disk size in GB
+      }
+      num_instances = 2 // Specify the number of worker instances
     }
   }
 }
