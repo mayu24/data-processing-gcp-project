@@ -59,9 +59,9 @@ jobs:
         env:
           GOOGLE_CREDENTIALS: ${{ secrets.GCP_SA_KEY }}
         working-directory: terraform
-      - name: Checkout code
-        uses: actions/checkout@v2
       - name: Terraform Destroy
         run: terraform destroy -auto-approve
+        env:
+          GOOGLE_CREDENTIALS: ${{ secrets.GCP_SA_KEY }}
         working-directory: terraform
 
