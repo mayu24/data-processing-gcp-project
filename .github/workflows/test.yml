@@ -1,14 +1,14 @@
-name: Test
+name: Unit Tests
 
 on:
   push:
     branches:
-      - master
+      - main  # Replace 'main' with your default branch name
 
 jobs:
   test:
     runs-on: ubuntu-latest
-
+    
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -16,12 +16,15 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.x'
+          python-version: 3.x  # Replace with your desired Python version
 
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
+          # Install your testing framework if needed
 
-      - name: Run tests
+      - name: Run unit tests
         run: |
-          pytest tests/
+          # Run your unit tests here
+          # Example: pytest
+          pytest
