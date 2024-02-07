@@ -36,14 +36,17 @@ jobs:
       - name: Terraform Init
         run: |
           terraform init
+        working-directory: terraform
       - name: Terraform Plan
         run:  terraform plan -input=false
         env: 
              GOOGLE_CREDENTIALS: ${{ secrets.GCP_SA_KEY }}
+        working-directory: terraform
 
       - name: Terraform Apply
         run: |
           terraform apply -auto-approve 
         env:
              GOOGLE_CREDENTIALS: ${{ secrets.GCP_SA_KEY }}
+        working-directory: terraform
            
