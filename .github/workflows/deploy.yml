@@ -60,7 +60,7 @@ jobs:
           GOOGLE_CREDENTIALS: ${{ secrets.GCP_SA_KEY }}
         working-directory: terraform
       - name: Terraform Destroy
-        run: terraform destroy -auto-approve
+        run: terraform destroy -auto-approve -target=google_dataproc_cluster.my-dataproc-cluster
         env:
           GOOGLE_CREDENTIALS: ${{ secrets.GCP_SA_KEY }}
         working-directory: terraform
