@@ -3,7 +3,7 @@ name: Deploy
 on:
   push:
     branches:
- #     - master
+      - master
 
 jobs:
   deploy:
@@ -25,10 +25,10 @@ jobs:
       - name: 'Set up Cloud SDK'
         uses: 'google-github-actions/setup-gcloud@v2'
         with:
-         version: '>= 363.0.0'
-         service_account_email: ${{ secrets.GCP_SERVICE_ACCOUNT_EMAIL }}
-         service_account_key: ${{ secrets.GCP_SA_KEY }}
-         export_default_credentials: true  # Export credentials as default
+          version: '>= 363.0.0'
+          service_account_email: ${{ secrets.GCP_SERVICE_ACCOUNT_EMAIL }}
+          service_account_key: ${{ secrets.GCP_SA_KEY }}
+          export_default_credentials: true  # Export credentials as default
 
       - name: 'Use gcloud CLI'
         run: 'gcloud info'
@@ -37,16 +37,24 @@ jobs:
         run: |
           terraform init
         working-directory: terraform
+
       - name: Terraform Plan
         run:  terraform plan -input=false
         env: 
-             GOOGLE_CREDENTIALS: ${{ secrets.GCP_SA_KEY }}
+          GOOGLE_CREDENTIALS: ${{ secrets.GCP_SA_KEY }}
         working-directory: terraform
 
       - name: Terraform Apply
         run: |
           terraform apply -auto-approve 
         env:
-             GOOGLE_CREDENTIALS: ${{ secrets.GCP_SA_KEY }}
+          GOOGLE_CREDENTIALS: ${{ secrets.GCP_SA_KEY }}
         working-directory: terraform
-           
+
+      - name: Setup Cluster
+        run: |
+          echo "Cluster setup completed!"
+
+  cleanup:
+    runs-on: ubuntu-latest
+    needs: [data_processing]
