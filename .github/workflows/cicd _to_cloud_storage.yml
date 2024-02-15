@@ -45,5 +45,3 @@ jobs:
         gcloud projects list
       env:
         GOOGLE_CREDENTIALS: ${{ secrets.GS_SA_KEY }}
-      
-        
