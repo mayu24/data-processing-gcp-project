@@ -22,4 +22,5 @@ jobs:
 
     - name: Deploy to Cloud Storage
       run: |
-        gsutil cp -r ./your-files gs://your-bucket/
+        gsutil cp -r ./* gs://my_bucket_dataproc/dataprocessing/
+        
