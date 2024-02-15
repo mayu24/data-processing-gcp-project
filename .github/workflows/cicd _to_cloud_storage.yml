@@ -34,5 +34,6 @@ jobs:
       run: |
         gsutil cp -r ./* gs://my_bucket_dataproc/dataprocessing/
       env:
-        GOOGLE_CREDENTIALS: ${{ secrets.GCP_SA_KEY }}
+        GOOGLE_CREDENTIALS: ${{ secrets.GS_SA_KEY }}
+      
         
