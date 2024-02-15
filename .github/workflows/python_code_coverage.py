@@ -3,7 +3,7 @@ name: Python Coverage
 on:
   push:
     branches:
-      - master
+       - master
 
 jobs:
   my_job:
