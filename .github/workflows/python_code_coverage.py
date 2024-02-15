@@ -1,9 +1,9 @@
-name: Deploy
+name: Python Coverage
 
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   my_job:
