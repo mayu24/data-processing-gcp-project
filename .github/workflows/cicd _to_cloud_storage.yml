@@ -25,18 +25,7 @@ jobs:
       uses: google-github-actions/auth@v0
       with:
          credentials_json: ${{ secrets.GS_SA_KEY }}
-    - name: Set up Google Cloud SDK
-      uses: google-github-actions/setup-gcloud@v2
-      with:
-        service_account_email: ${{ secrets.GS_SERVICE_ACCOUNT_EMAIL }}
-        service_account_key: ${{ secrets.GS_SA_KEY }}
-        export_default_credentials: true
-        skip_install: false
-        version: ">= 363.0.0"
-    - name: Use gcloud CLI
-      run: |
-       gcloud config set account cicd-pipeline-service-account@root-rock-413418.iam.gserviceaccount.com
-
+        
     - name: Deploy to Cloud Storage
       run: |
         gsutil cp -r ./* gs://my_bucket_dataproc/dataprocessing/
