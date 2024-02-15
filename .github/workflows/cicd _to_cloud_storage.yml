@@ -1,4 +1,4 @@
-name: CI/CD to Cloud Storage
+name: CI/CD Pipeline to Cloud Storage
 
 on:
   push:
