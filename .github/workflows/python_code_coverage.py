@@ -1,8 +1,9 @@
+---
+name: Deploy
 on:
   push:
     branches:
-    - master
-    - release/*
+    - main
 
 jobs:
   my_job:
