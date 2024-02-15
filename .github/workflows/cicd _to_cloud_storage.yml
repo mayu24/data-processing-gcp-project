@@ -39,7 +39,8 @@ jobs:
       run: |
         gsutil cp -r ./* gs://my_bucket_dataproc/dataprocessing/
         gcloud auth list
-    #  env:
-    #    GOOGLE_CREDENTIALS: ${{ secrets.GS_SA_KEY }}
+        gcloud projects list
+      env:
+        GOOGLE_CREDENTIALS: ${{ secrets.GS_SA_KEY }}
       
         
