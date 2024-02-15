@@ -25,4 +25,20 @@ jobs:
           thresholdNew: # optional, default is 0.0
           # The coverage threshold for average over modified files [0,1]
           thresholdModified: # optional, default is 0.0
+
+    - name: Upload coverage report
+        uses: actions/upload-artifact@v2
+        with:
+          name: coverage-report
+          path: ${{ env.COVERAGE_FILE }}
+
+      # Comment on the pull request with coverage report
+      - name: Comment on pull request with coverage report
+        uses: unsplash/comment-on-pr@v1
+        with:
+          msg: |
+            Coverage Report:
+            ![Coverage Report](https://github.com/${{ github.repository }}/raw/main/${{ env.COVERAGE_FILE }})
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
