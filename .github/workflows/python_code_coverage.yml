@@ -33,4 +33,4 @@ jobs:
           -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
           -H "Content-Type: application/json" \
           -d '{"body": "Coverage Report: ![Coverage Report](https://github.com/${{ github.repository }}/raw/main/${{ env.COVERAGE_FILE }})"}' \
-          "https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/comments"     
+          "https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.push_request.number }}/comments"     
