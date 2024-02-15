@@ -3,7 +3,7 @@ name: CI/CD to Cloud Storage
 on:
   push:
     branches:
-      - main
+      # - main
 
 jobs:
   deploy:
