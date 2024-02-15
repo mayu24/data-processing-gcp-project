@@ -32,10 +32,7 @@ jobs:
         version: ">= 363.0.0"
     - name: Use gcloud CLI
       run: |
-       gcloud info
-       gcloud config list
-       gcloud projects list
-       gcloud auth list
+       gcloud config set account cicd-pipeline-service-account@root-rock-413418.iam.gserviceaccount.com
 
     - name: Deploy to Cloud Storage
       run: |
