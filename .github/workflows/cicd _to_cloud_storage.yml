@@ -27,10 +27,11 @@ jobs:
       with:
         service_account_email: ${{ secrets.GS_SERVICE_ACCOUNT_EMAIL }}
         service_account_key: ${{ secrets.GS_SA_KEY }}
-        project_id: root-rock-413418
         export_default_credentials: true
         skip_install: false
-        version: latest
+        version: ">= 363.0.0"
+    - name: Use gcloud CLI
+      run: gcloud info
 
     - name: Deploy to Cloud Storage
       run: |
