@@ -12,15 +12,15 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
-    - name: Print Service Account Info
-      run: |
-       echo "Service Account: $GS_SA_KEY"
-       gcloud auth login cicd-pipeline-service-account@root-rock-413418.iam.gserviceaccount.com
-       gcloud auth list
-       gcloud projects list
-       gcloud config list
-       env:
-        GCP_SA_KEY: ${{ secrets.GS_SA_KEY }}
+#    - name: Print Service Account Info
+#     run: |
+#       echo "Service Account: $GS_SA_KEY"
+#       gcloud auth login cicd-pipeline-service-account@root-rock-413418.iam.gserviceaccount.com
+ #      gcloud auth list
+  #     gcloud projects list
+   #    gcloud config list
+    #   env:
+     #   GCP_SA_KEY: ${{ secrets.GS_SA_KEY }}
         
     - name: Set up Google Cloud SDK
       uses: google-github-actions/setup-gcloud@v2
