@@ -15,7 +15,6 @@ jobs:
     - name: Print Service Account Info
       run: |
        echo "Service Account: $GS_SA_KEY"
-       gcloud auth activate-service-account --key-file=<(echo $GS_SA_KEY)
        gcloud auth list
        gcloud projects list
        gcloud config list
