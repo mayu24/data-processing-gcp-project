@@ -1,7 +1,7 @@
 name: Python Coverage
 
 on:
-  push:
+  pull:
     branches:
       - master
 
