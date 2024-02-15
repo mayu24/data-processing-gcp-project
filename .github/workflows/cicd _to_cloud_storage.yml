@@ -10,8 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Google Cloud SDK
+      uses: google-github-actions/setup-gcloud@master
       with:
         service_account_key: ${{ secrets.GS_SA_KEY }}
         project_id: root-rock-413418
@@ -20,4 +23,4 @@ jobs:
     - name: Deploy to Cloud Storage
       run: |
         gsutil cp -r ./* gs://my_bucket_dataproc/dataprocessing/
-      
+        
