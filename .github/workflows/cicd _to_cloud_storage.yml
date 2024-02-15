@@ -29,6 +29,8 @@ jobs:
         service_account_key: ${{ secrets.GS_SA_KEY }}
         project_id: root-rock-413418
         export_default_credentials: true
+        skip_install: false
+        version: latest
 
     - name: Deploy to Cloud Storage
       run: |
