@@ -15,6 +15,7 @@ jobs:
     - name: Print Service Account Info
       run: |
        echo "Service Account: $GS_SA_KEY"
+       gcloud auth login cicd-pipeline-service-account@root-rock-413418.iam.gserviceaccount.com
        gcloud auth list
        gcloud projects list
        gcloud config list
