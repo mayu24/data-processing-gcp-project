@@ -1,1 +1,26 @@
+name: CI/CD to Cloud Storage
 
+on:
+  push:
+    branches:
+       - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Google Cloud SDK
+      uses: google-github-actions/setup-gcloud@master
+      with:
+        service_account_key: ${{ secrets.GS_SA_KEY }}
+        project_id: root-rock-413418
+        export_default_credentials: true
+
+    - name: Deploy to Cloud Storage
+      run: |
+        gsutil cp -r ./* gs://my_bucket_dataproc/dataprocessing/
+      
