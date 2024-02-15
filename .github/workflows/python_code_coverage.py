@@ -1,3 +1,9 @@
+on:
+  push:
+    branches:
+    - master
+    - release/*
+
 - name: Python Coverage
   # You may pin to the exact commit or the version.
   # uses: orgoro/coverage@4e3bc9302f715595336a40f7dd4a3b15c687bdb4
