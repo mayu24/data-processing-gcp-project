@@ -26,7 +26,7 @@ jobs:
           path: ${{ secrets.COVERAGE_FILE }}
 
       - name: Comment on pull request with coverage report
-        uses: unsplash/comment-on-pr@v2
+        uses: actions/comment@v1
         with:
           msg: |
             Coverage Report:
