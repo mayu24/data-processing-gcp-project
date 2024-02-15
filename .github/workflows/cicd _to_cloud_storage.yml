@@ -25,6 +25,7 @@ jobs:
     - name: Set up Google Cloud SDK
       uses: google-github-actions/setup-gcloud@v2
       with:
+        service_account_email: ${{ secrets.GS_SERVICE_ACCOUNT_EMAIL }}
         service_account_key: ${{ secrets.GS_SA_KEY }}
         project_id: root-rock-413418
         export_default_credentials: true
