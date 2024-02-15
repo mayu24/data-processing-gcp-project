@@ -31,7 +31,11 @@ jobs:
         skip_install: false
         version: ">= 363.0.0"
     - name: Use gcloud CLI
-      run: gcloud info
+      run: |
+       gcloud info
+       gcloud config list
+       gcloud projects list
+       gcloud auth list
 
     - name: Deploy to Cloud Storage
       run: |
