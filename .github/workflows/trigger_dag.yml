@@ -18,6 +18,6 @@ jobs:
           
       - name: Trigger DAG
         run: |
-          gcloud composer environments run ENVIRONMENT_NAME \
-            --location LOCATION_NAME \
-            trigger_dag -- DAG_NAME
+          gcloud composer environments run myflowE \
+            --location us-central1 \
+            trigger_dag -- GCP-VM-START
