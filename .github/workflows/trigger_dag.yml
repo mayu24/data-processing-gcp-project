@@ -1,4 +1,4 @@
-name: Trigger DAG
+name: Trigger filed DAG
 
 on:
   push:
