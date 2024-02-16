@@ -18,4 +18,6 @@ jobs:
           
       - name: Trigger DAG
         run: |
-          gcloud composer environments run myairflow --location us-central1 --project root-rock-413418 dags trigger --run-id=GCP-VM-START
+          # gcloud composer environments run myairflow --location us-central1 --project root-rock-413418 dags trigger --run-id=GCP-VM-START
+          gcloud composer environments run myairflow --location us-central1 dags trigger GCP-VM-START --run-id=GCP-VM-START
+
